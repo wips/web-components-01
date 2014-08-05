@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Web-components</title>
+    <script src="//localhost:35729/livereload.js"></script>
+
+    <template id="template-user">
+        <h1>True template:</h1>
+        <h2 class="name">true template</h2>
+        <img src="epam.jpg">
+    </template>
+
+    <script type="x-template" id="script-template-user">
+        <h1>Script template:</h1>
+        <h2 class="name">{{ datum }}</h2>
+        <img src="epam.jpg">
+    </script>
+
+    <script type="text/javascript">
+        var xssString = "<script type=\"text/javascript\">alert(\"XSS\")<\/script>";
+    </script>
+
+    <script>
+        function trueTemplate () {
+            var template, content, fragment;
+
+            template = document.getElementById('template-user');
+            content = template.content;
+            content.querySelector('.name').innerText = xssString;
+            fragment = document.importNode(content, true);
+            document.body.appendChild(fragment);
+        }
+
+        function scriptTemplate () {
+            var template, content, range, fragment;
+
+            template = document.getElementById('script-template-user');
+            content = template.innerHTML.replace('{{ datum }}', xssString);
+            range = document.createRange();
+            range.selectNode(document.body);
+            fragment = range.createContextualFragment(content);
+
+            document.body.appendChild(fragment);
+        }
+
+        window.onload = function () {
+            trueTemplate();
+            scriptTemplate();
+        };
+    </script>
+</head>
+<body>
+</body>
+</html>

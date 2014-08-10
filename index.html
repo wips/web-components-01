@@ -4,28 +4,32 @@
     <meta charset="UTF-8">
     <title>Web-components</title>
     <script src="//localhost:35729/livereload.js"></script>
-    <style>
-        div, h2 {
-            border: 1px solid green;
-            padding: 10px;
-        }
-    </style>
+    <link type="text/css" href="style.css" rel="stylesheet">
+
     <template id="user">
-        <h2 class="name"></h2>
-        <content></content>
+        <style>
+            div.shadow-container {
+                padding: 15px;
+                box-shadow: 10px 10px 5px #888888;
+                border: 5px dotted goldenrod;
+                margin: 0 10px 10px 0;
+            }
+        </style>
+        <div class="shadow-container">
+            <h2 class="name"></h2>
+        </div>
     </template>
 
     <script>
         function initShadow () {
-            var shadowContainer, shadowRoot;
-            shadowContainer = document.getElementById('shadow-container');
-            shadowRoot = shadowContainer.createShadowRoot();
+            var shadowContainer = document.querySelector('.shadow-root');
+            var shadowRoot = shadowContainer.createShadowRoot();
             shadowRoot.appendChild(getTemplatedNode());
         }
 
         function getTemplatedNode () {
             var content = document.getElementById('user').content;
-            content.querySelector('.name').innerText = 'This template is now shadow html';
+            content.querySelector('.name').innerText = 'Mr. Shadow';
             return document.importNode(content, true);
         }
 
@@ -35,8 +39,8 @@
     </script>
 </head>
 <body>
-    <div id="shadow-container">
-        <h2>Initial shadow container contents</h2>
+    <div class="shadow-root">
+        <h2 class="name">Mr. Lite</h2>
     </div>
 </body>
 </html>

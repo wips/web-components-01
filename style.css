@@ -1,13 +1,12 @@
 .shadow-root {
     border: 1px dashed brown;
-}
-
-div, h2 {
     padding: 15px;
-    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, serif;
 }
 
 h2.name {
+    font-style: italic;
     color: darkblue;
     border: 5px solid darkblue;
+    padding: 15px;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, serif;
 }

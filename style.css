@@ -10,3 +10,8 @@ h2 {
     padding: 15px;
     font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, serif;
 }
+
+div.shadow-root::shadow h2 {
+    color: darkgreen;
+    font-family: "Consolas", monospace;
+}

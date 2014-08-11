@@ -11,7 +11,7 @@ h2 {
     font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, serif;
 }
 
-div.shadow-root::shadow h2 {
-    color: darkgreen;
-    font-family: "Consolas", monospace;
+div.shadow-root /deep/ h2 {
+    color: darkmagenta;
+    font-family: "Trebuchet MS", Verdana, sans-serif;
 }

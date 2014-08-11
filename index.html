@@ -14,7 +14,18 @@
                 border: 5px dotted brown;
                 margin: 0 10px 10px 0;
             }
-            h2.name { color: brown; }
+            h2.name {
+                color: brown;
+                font-family: serif;
+            }
+            ::content > h2 {
+                color: brown;
+                font-family: serif;
+                font-style: normal;
+                border: none;
+                display: inline-block;
+                padding: 0;
+            }
         </style>
         <div class="shadow-container">
             <h2 class="name">Mr. Shadow</h2>
@@ -43,6 +54,7 @@
 <body>
     <div class="shadow-root">
         <h2 class="name">Mr. Lite</h2>
+        <h2 class="position">Cleaner</h2>
     </div>
 </body>
 </html>

@@ -14,15 +14,32 @@
                 border: 5px dotted brown;
                 margin: 0 10px 10px 0;
             }
-            h2.name {
-                color: brown;
+            h2 {
                 font-family: serif;
+                margin: 0;
+                padding: 0;
             }
-
+            ::content[select=".name"] > h2, ::content[select=".position"] > h2 {
+                display: inline-block;
+                border: none;
+                padding: 0;
+                margin: 0;
+                font-style: normal;
+            }
+            li {
+                list-style-type: none;
+                font-size: 30px;
+            }
         </style>
         <div class="shadow-container">
-            <h2 class="name">Mr. Shadow</h2>
-            <content></content>
+            <ul>
+                <li>Real name:</li>
+                <li><content select=".name"></content></li>
+                <li>Pseudo:</li>
+                <li><h2>Mr. Shadow</h2></li>
+                <li>Position:</li>
+                <li><content select=".position"></content></li>
+            </ul>
         </div>
     </template>
 
@@ -35,7 +52,6 @@
 
         function getTemplatedNode () {
             var content = document.getElementById('user').content;
-            content.querySelector('.name').innerText = 'Mr. Shadow';
             return document.importNode(content, true);
         }
 

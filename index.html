@@ -26,9 +26,12 @@
                 display: inline-block;
                 padding: 0;
             }
-            :host {
-                border: 5px double blue;
-                text-transform: uppercase;
+            /*:host {*/
+                /*border: 5px double blue;*/
+                /*text-transform: uppercase;*/
+            /*}*/
+            :host-context(div) {
+                text-transform: lowercase;
             }
         </style>
         <div class="shadow-container">
